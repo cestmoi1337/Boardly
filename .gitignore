@@ -1,0 +1,8 @@
+# Ignore node_modules folder (if you use npm later for any libraries)
+node_modules/
+
+# Ignore any local Chrome-specific files
+*.local
+
+# Ignore macOS system files
+.DS_Store

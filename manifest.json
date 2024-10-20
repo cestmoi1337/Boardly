@@ -1,0 +1,43 @@
+/*
+  manifest.json
+  This file defines the configuration for the Boardly Chrome extension. 
+  It includes essential information like the extension name, version, permissions, and background scripts. 
+  This file tells Chrome how the extension should behave and what resources it uses.
+*/
+
+{
+    "manifest_version": 3,  // Specifies the version of the manifest file format. Chrome extensions now use version 3.
+    
+    "name": "Boardly",  // The name of the extension, displayed to the user.
+    "version": "1.0",  // The current version of the extension, useful for updates.
+    "description": "Boardly is a lightweight Kanban board extension that helps you manage tasks with ease.",  // Short description of the extension shown in the Chrome Web Store.
+  
+    "permissions": [
+      "storage",  // Permission to use Chrome's local storage to save boards, columns, and cards.
+      "tabs"      // Permission to access browser tabs, in case future functionality interacts with tab management.
+    ],
+  
+    "background": {
+      "service_worker": "js/background.js"  // Defines a background service worker script that runs in the background to handle persistent tasks like saving board data.
+    },
+  
+    "action": {
+      "default_popup": "popup.html",  // Defines the HTML file that is shown when the extension icon is clicked in the browser toolbar.
+      "default_icon": {
+        "16": "assets/icon16.png",   // Icon for the toolbar (16x16 pixels).
+        "48": "assets/icon48.png",   // Larger icon for other UI elements (48x48 pixels).
+        "128": "assets/icon128.png"  // Icon for the Chrome Web Store listing or when the extension is promoted (128x128 pixels).
+      }
+    },
+  
+    "icons": {
+      "16": "assets/icon16.png",   // Same icon definitions used in the extension's listing and interface.
+      "48": "assets/icon48.png",   
+      "128": "assets/icon128.png"  
+    },
+  
+    "chrome_url_overrides": {
+      "newtab": "index.html"  // This tells Chrome to override the default "New Tab" page with our custom Kanban board (index.html).
+    }
+  }
+  
